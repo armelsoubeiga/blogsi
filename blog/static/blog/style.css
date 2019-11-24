@@ -27,10 +27,10 @@ header.base-header .overlay {
 
 header.base-header .post-heading {
   padding: 200px 0 150px;
-  color: blue;
+  color: white;
   text-align: center;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 300px;
 
 }
 
@@ -92,7 +92,11 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizelegibility;
+  text-rendering: optimizelegibility; 
+}
+
+main {
+  padding-bottom:70px; 
 }
 
 footer {

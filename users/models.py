@@ -10,7 +10,8 @@ class Profile(models.Model):
 
     # Change to String obj. for simple reading into Admin panel
     def __str__(self):
-        return f'{self.user.username}' Profile
+        return self.user.username+'\'s Profile'
+        #return f'{self.user.username}' Profile
 
     def save(self, *args, **kwargs):
         # Call parent class method and change it

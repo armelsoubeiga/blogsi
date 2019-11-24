@@ -1,0 +1,26 @@
+<!-- Create New Post -->
+{% extends "blog/base.html"%} 
+
+<!-- Title only for this site -->
+{% block title %}Nouveau Post{% endblock %}
+
+<!-- For Django Forms -->
+{% load crispy_forms_tags %} 
+
+{% block content%}
+  <div class="content-section" role="create new post">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <!-- Titel  -->
+        <h1 class="text-center border-bottom mb-4">Blog Post</h1>
+        <!-- Django Forms for create Post-->
+        {{ form | crispy }}
+      </fieldset>
+
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Publier</button>
+      </div>
+    </form>
+  </div>
+{% endblock content%}

@@ -1,0 +1,242 @@
+/*
+* Custom General CSS
+*/ 
+
+header.base-header {
+  margin-bottom: 100px;
+  background: no-repeat center center;
+  background-color: #868e96;
+  background-attachment: scroll;
+  position: relative;
+  background-size: cover;
+  height: 400px;
+}
+
+header.base-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #212529;
+  opacity: 0.5;
+
+}
+
+  header.base-header .post-heading h1 {
+    font-size: 55px;
+  }
+
+header.base-header .post-heading {
+  padding: 200px 0 150px;
+  color: blue;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 300;
+
+}
+
+/* For Microsoft Devices - Responsive */
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /* Instant Response for Mobile Devices on TOUCH, 300 / ms Delay Delay */
+  -ms-touch-action: manipulation; /* IE10  */
+  touch-action: manipulation;
+
+  /* Hidden Scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  position: relative;
+  height: 100%;
+
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1 a {
+    font-family: 'Lobster';
+}
+
+/* Remove Outline */
+*:focus {
+  outline: none;
+  outline: 0;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Add color for marked text */
+::selection {
+  background: grey;
+  color: wheat;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: grey;
+  color: wheat;
+  text-shadow: none;
+}
+
+/* Hide Scrollbar */
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+input,
+input:before,
+input:after {
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+}
+
+/********************************************
+* BASE TEMPLATE HEADER
+*********************************************/
+.base-header {
+  width: 100vw;
+  height: 5em;
+}
+
+/********************************************
+* HOME Template
+*********************************************/
+.blog-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+
+.blog-content__content {
+  font-size: 1.2em;
+}
+
+.blog-content__img {
+  width: 20%;
+  max-width: 10%;
+  border: 1px solid black;
+  margin-right: 5em;
+}
+
+.blog-content__metadata > p {
+  display: inline-block;
+}
+
+/********************************************
+* USER Profile Template
+*********************************************/
+.profile-title {
+  text-align: center;
+}
+
+.profile-img {
+  border: 1px solid black;
+  max-width: 20%;
+}
+
+/********************************************
+* IMPRESSUM Template
+*********************************************/
+.impressum-address {
+  display: flex;
+  justify-content: space-around;
+}
+

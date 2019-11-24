@@ -1,0 +1,44 @@
+<!-- Profile -->
+{% extends "blog/base.html"%}
+
+<!-- Title only for this site -->
+{% block title %}Profil{% endblock %}
+
+<!-- Django Crispy Forms -->
+{% load crispy_forms_tags %}
+
+{% block content%}
+  <section class="row pt-3 pb-5" role="profile">
+    <div class="col-8 mx-auto">
+      <div class="profile-title pb-3">
+        <!-- Username  -->
+        <h1 class="pb-3">{{ user.username }}</h1>
+
+         <!-- Profile Image  -->
+        <div class="profile">
+          <img
+              src="{{ user.profile.image.url }}"
+              alt="{{ user.username }}"
+              class="rounded-circle profile-img"/>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <!-- Title FOrm  -->
+          <legend class="border-bottom mb-4">Information de profil</legend>
+          <!-- Django User Form  -->
+          {{ user_form | crispy }}
+          <!-- Django Profile Form  -->
+          {{ profile_form | crispy }}
+        </fieldset>
+
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Mettre à jour</button>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock content%}

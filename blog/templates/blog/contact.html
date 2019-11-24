@@ -1,0 +1,75 @@
+<!-- Contact -->
+{% extends "blog/base.html"%}
+
+<!-- Title only for this site -->
+{% block title %}Contact{% endblock %}
+
+{% block content%}
+
+  <section  role="contact">
+    <aside class="row">
+      <!-- START Header -->
+      <div class="col-md-9 mx-auto">
+        <!-- Section heading -->
+        <h1 class="border-bottom text-center my-4 pb-2">Contactez Nous</h1>
+        <!-- Section description -->
+        <p class="text-center w-responsive mx-auto mb-5">Avez-vous des questions? S'il vous plaît n'hésitez pas à contacter l'équipe administrative directement. Notre équipe reviendra vers vous dans les heures qui suivent pour vous aider.</p>
+      </div>
+      <!-- END Header -->
+    </aside>
+
+    <!-- START Form  -->
+    <div class="row">
+      <div class="col-md-9 mx-auto mb-5">
+        <form id="contact-form" name="contact-form"  method="POST">
+          <!-- START Name & Email  -->
+          <div class="row pb-3">
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <label for="name" class="">Votre nom</label>
+                  <input type="text" id="name" name="name" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <label for="email" class="">Votre email</label>
+                  <input type="text" id="email" name="email" class="form-control">
+                </div>
+            </div>
+          </div>
+          <!-- END Name & Email  -->
+
+          <!-- START Subject -->
+          <div class="row pb-3">
+              <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <label for="subject" class="">Sujets</label>
+                    <input type="text" id="subject" name="subject" class="form-control">
+                  </div>
+              </div>
+          </div>
+          <!-- END Subject -->
+
+          <!-- START Message  -->
+          <div class="row">
+            <div class="col-md-12 pb-3">
+                <div class="md-form">
+                  <label for="message">Votre message</label>
+                  <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea"></textarea>
+                </div>
+            </div>
+          </div>
+          <!-- END Message -->
+        </form>
+
+        <!-- START Button -->
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Envoyer</button>
+        </div>
+        <!-- END Button -->
+      </div>
+    </div>
+    <!-- END Form  -->
+  </section>
+
+{% endblock content%}

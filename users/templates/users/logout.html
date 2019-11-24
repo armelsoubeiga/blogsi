@@ -1,0 +1,20 @@
+<!-- Logout -->
+{% extends "blog/base.html"%} 
+
+<!-- Title only for this site -->
+{% block title %}Deconnexion{% endblock %}
+
+{% block content%}
+  <aside role="logout">
+    <!-- Title Logout -->
+    <h1 class="text-center">Vous avez été déconnecté.</h1>
+
+    <!-- Logg in -->
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        <a href="{% url 'login' %}">Se connecter</a>
+      </small>
+    </div>
+  </aside>
+
+{% endblock content%}

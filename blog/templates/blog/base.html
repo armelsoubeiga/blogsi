@@ -1,0 +1,121 @@
+<!-- Load static files - css... -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  shrink-to-fit=no,  viewport-fit=cover, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+    <!-- iPhone & iPad  -->
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+
+    <!-- Dynamic Title -->
+    <title>{% block title %} Stat-Informaticiens {% endblock %}</title>
+
+  </head>
+
+    <body>
+        <!-- START Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" role="navigation">
+          <div class="container">
+            <!-- Navbar heading -->
+            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Stat-Informaticiens Blog</a>
+            <!-- START Mobile Menu Button -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- END Mobile Menu Button -->
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav d-flex w-100">
+                <!-- START Navbar Left Side -->
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{% url 'blog-home' %}">Accueil</a>
+                </div>
+                <!-- END Navbar Left Side -->
+                  
+                <!-- START Navbar Right Side -->
+                <div class="navbar-nav  justify-content-end">
+                    {% if user.is_authenticated  %}
+                        <a href="{% url 'post-create' %}" class="nav-item nav-link">Nouveau Poste</a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link">Déconnexion</a>
+                        <a href="{% url 'profile' %}" class="nav-item nav-link">Profil</a>
+                    {% else  %}
+                        <a href="{% url 'login' %}" class="nav-item nav-link">Connexion</a>
+                        <a href="{% url 'register' %}" class="nav-item nav-link">Inscription</a>
+                        <br>
+                        <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact</a>
+                    {% endif  %}
+                </div>
+                <!-- END Navbar Right Side -->
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- END Navbar -->
+      <header class="base-header" style="background-image: url('/static/image/bg-img.jpg')">
+        <div class="overlay"></div>
+          <div class="post-heading">
+            <h1>Learning by sharing</h1>
+          </div>
+      </header>
+      <main class="container" role="main">
+        <!-- START Content -->
+        <div class="row">
+          <section class="col-md-12 mx-auto " >
+
+            <!-- START Django Messages -->
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %} 
+            {% endif %} 
+            <!-- END Django Messages -->
+            <!-- Dynamic content -->
+
+            {% block content %}
+            {% endblock %}
+          </section>
+        </div>
+        <!-- END Content -->
+      </main>
+
+      <footer class="font-small bg-light" role="footer">
+        <!-- START Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+          Stat-Informaticiens ||
+          <a href="{% url 'blog-impressum' %}" class="text-info">FootPrint</a>
+        </div>
+        <!-- END Copyright -->
+      </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

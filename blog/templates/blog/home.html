@@ -1,0 +1,33 @@
+<!-- Home Page -->
+{% extends "blog/base.html"%} 
+
+<!-- Title only for this site -->
+{% block title %}Acceuil {% endblock %}
+{% block content%}  
+  {% for post in posts %}
+    <article class="blog-content mb-4 pb-4 border-bottom" role="article">
+      <!-- Author Image -->
+      <img src="{{ post.author.profile.image.url }}" alt="author"  class="rounded-circle blog-content__img"/>
+      <!-- START Post -->
+      <div class="blog-content__body">
+        <!-- Title Post -->
+        <h1>
+          <a href="{% url 'post-detail' post.id  %}" class="blog-content__title text-primary">{{ post.title }}</a>
+        </h1>
+        <!-- Content Post -->
+        <p class="blog-content__content">{{ post.content|slice:":500"}}</p>
+
+        <!-- START Author Link -->
+        <div class="blog-content__metadata pt-1">
+          <p> Auteur:
+            <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>
+          </p>
+          <!-- Django Date format for Europe -->
+          <small class="text-muted">Publié: {{ post.created_at | date:"d.m.Y" }}</small>
+        </div>
+        <!-- END Author Link -->
+      </div>
+      <!-- END Post -->
+    </article>
+  {% endfor%} 
+{% endblock content%}

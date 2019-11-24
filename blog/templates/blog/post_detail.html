@@ -1,0 +1,36 @@
+<!-- Post Detail -->
+{% extends "blog/base.html"%}
+
+<!-- Title only for this site -->
+{% block title %}Post Detail{% endblock %}
+
+{% block content%}
+  <article class="blog-content mb-4 pb-2 border-bottom" role="article">
+    <!-- Author Image -->
+    <img src="{{ object.author.profile.image.url }}" alt="author" class="rounded-circle blog-content__img"/>
+    <!-- START Content Post -->
+    <div class="blog-content__body">
+      <!-- Title Post -->
+      <h1> {{ object.title }} </h1>
+      <!-- Content Post -->
+      <p class="blog-content__content">{{ object.content }}</p>
+
+      <!-- START Author Link -->
+      <div class="blog-content__metadata pt-1">
+        <p> Auteur: <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ object.author }}</a> </p>
+          <!-- Django Date format for Europe -->
+          <small class="text-muted">Publié: {{ object.created_at | date:"d.m.Y" }}</small>
+      </div>
+      <!-- END Author Link -->
+
+      <!-- Only for Post Author -->
+      {%  if object.author == user%}
+        <!-- Update -->
+        <a href="{% url 'post-update' object.id %}" class="btn btn-outline-info btn-sm mt-1 mb-1">Modifier</a>
+        <!-- Delete -->
+        <a href="{% url 'post-delete' object.id %}" class="btn btn-danger btn-sm mt-1 mb-1">Supprimer</a>
+      {% endif %}
+    </div>
+    <!-- END Content Post -->
+  </article>
+{% endblock content%}

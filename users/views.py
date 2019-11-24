@@ -18,7 +18,7 @@ def register(request):
             username = form.cleaned_data.get('username')
             # Send message
             messages.success(
-                request, f'Votre compte a été créé! Vous pouvez maintenant vous connecter.')
+                request, 'Votre compte a été créé! Vous pouvez maintenant vous connecter.')
             return redirect('login')
     else:
         # If not valid show only form
@@ -42,7 +42,7 @@ def profile(request):
             profile_form.save()
             # Send message
             messages.success(
-                request, f'Votre compte a été mis à jour.')
+                request, 'Votre compte a été mis à jour.')
             return redirect('profile')
     else:
         # Instance is for update our form

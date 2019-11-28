@@ -6,4 +6,5 @@ env
 db.sqlite3
 /static
 /media
+/staticfiles
 .DS_Store

@@ -21,6 +21,8 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
+    paginate_by = 3
+    queryset = Post.objects.order_by('-created_at')
     # Newest Post show at First
     ordering = ['-created_at']
 

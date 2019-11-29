@@ -3,31 +3,54 @@
 
 <!-- Title only for this site -->
 {% block title %}Acceuil {% endblock %}
-{% block content%}  
-  {% for post in posts %}
-    <article class="blog-content mb-4 pb-4 border-bottom" role="article">
-      <!-- Author Image -->
-      <img src="{{ post.author.profile.image.url }}" alt="author"  class="rounded-circle blog-content__img"/>
-      <!-- START Post -->
-      <div class="blog-content__body">
-        <!-- Title Post -->
-        <h1>
-          <a href="{% url 'post-detail' post.id  %}" class="blog-content__title text-primary">{{ post.title }}</a>
-        </h1>
-        <!-- Content Post -->
-        <p class="blog-content__content">{{ post.content|slice:":500"}}</p>
+{% block content%} 
 
-        <!-- START Author Link -->
-        <div class="blog-content__metadata pt-1">
-          <p> Auteur:
-            <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>
-          </p>
-          <!-- Django Date format for Europe -->
-          <small class="text-muted">Publié: {{ post.created_at | date:"d.m.Y" }}</small>
-        </div>
-        <!-- END Author Link -->
-      </div>
-      <!-- END Post -->
-    </article>
+{% block sidebar %}
+<style>
+        .card{
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+</style>
+
+<!-- Sidebar Widgets Column -->
+<div class="col-xs-6 col-md-2 float-right ">
+<div class="card my-4">
+        <h5 class="card-header">A Propos</h5>
+    <div class="card-body">
+        <p class="card-text"> Nous sommes un réseau d'étudiants et de professionnels en statistiques/informatique, passionnés par la donnée, ce pétrole du 21ème siècle.</p>
+        <a href="https://statinf.wixsite.com/openanalysis/a-propos"
+           class="btn btn-danger">Lire Plus</a>
+    </div>
+</div>
+</div>
+{% endblock sidebar %} 
+  {% for post in posts %}
+  	<div class="col-xs-12 col-md-10 mt-3 left">
+            <div class="card mb-4">
+            	<img src="{{ post.author.profile.image.url }}" alt="author"  class="rounded-circle blog-content__img"/>
+                <div class="card-body">
+                    <h2 class="card-title text-primary">{{ post.title }}</h2>
+                    <p class="card-text">{{post.content|slice:":300" }}</p>
+                            <div class="blog-content__metadata pt-1">
+					          <p> Auteur:
+					            <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>
+					          </p>
+					          <!-- Django Date format for Europe -->
+					          <small class="text-muted">Publié: {{ post.created_at | date:"d.m.Y" }}</small>
+					        </div>
+                    <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary">lirer &rarr;</a>
+                 </div>
+            </div>
+    </div>
   {% endfor%} 
+  <!-- render the list -->
+
+{% if is_paginated %}
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary">Post Précédent &larr;</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary">Post Suivant &rarr;</a>
+    {% endif %}
+{% endif %}
 {% endblock content%}

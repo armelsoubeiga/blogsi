@@ -5,23 +5,59 @@
 {% block title %}Acceuil {% endblock %}
 {% block content%} 
 
+	<!--<div class="inner">-->
+	<marquee direction="right" onmouseout="this.start()" onmouseover="this.stop()" scrolldelay="1">
+		<a href="https://drive.google.com/open?id=1z2sqOPLL-kOqWt8g0GJljs4YIFnKmOEI" target="_blank"><img src="/static/image/Annonces/LT001.png" class="image" lazy="loading"></a>
+		<a href="https://drive.google.com/open?id=1en22FjtdHqUBpahTrGgxViHLtjoZIjFR" target="_blank"><img src="/static/image/Annonces/LT002.png" class="image" lazy="loading">
+		<a href="https://drive.google.com/open?id=1PpDmiwNYsS8PIOSR9GWGBgbhlYbW9IcJ" target="_blank"><img src="/static/image/Annonces/LT003.png" class="image" lazy="loading">
+		<a href="https://drive.google.com/open?id=1-u-4GWenUb2ZXDMD0wcP9kb1nue076Wa" target="_blank"><img src="/static/image/Annonces/LT004.png" class="image" lazy="loading">
+		<a href="https://drive.google.com/open?id=1THvyj8unnDJXw2lvMOmhGNT5GrW_DmQq" target="_blank"><img src="/static/image/Annonces/LT005.png" class="image" lazy="loading">
+		<a href="https://drive.google.com/open?id=1zmZZ0MxVOJEZ0D2QGmchp0gDOmqhy8Bb" target="_blank"><img src="/static/image/Annonces/LT006.png" class="image" lazy="loading">
+		<a href="https://drive.google.com/open?id=1T0m1R6-V9QD5WNszrrLb9sGt_aLFqTUL" target="_blank"><img src="/static/image/Annonces/LT007.png" class="image" lazy="loading">
+		<a href="https://drive.google.com/open?id=1ss4BDsBGDjlmURgk5KxyVqVuiEeGwiFS" target="_blank"><img src="/static/image/Annonces/LT009.png" class="image" lazy="loading">
+	</marquee>
+	<!--</div>-->
+<hr><div></div>
 {% block sidebar %}
 <style>
-        .card{
-            box-shadow: 0 16px 48px #E3E7EB;
+.card{
+    box-shadow: 0 16px 48px #E3E7EB;
         }
+
+.image {
+	background-size: cover;
+	width: 300px;
+	height: 150px;
+	margin-right:50px;
+}
+
 </style>
 
 <!-- Sidebar Widgets Column -->
 <div class="col-xs-6 col-md-2 float-right ">
 <div class="card my-4">
-        <h5 class="card-header">A Propos</h5>
+    <h5 class="card-header">A Propos</h5>
     <div class="card-body">
         <p class="card-text"> Nous sommes un réseau d'étudiants et de professionnels en statistiques/informatique, passionnés par la donnée, ce pétrole du 21ème siècle.</p>
         <a href="https://statinf.wixsite.com/openanalysis/a-propos"
            class="btn btn-danger">Lire Plus</a>
     </div>
 </div>
+<div class="card my-4">
+    <h5 class="card-header">Group Whatsapp</h5>
+    <div class="card-body">
+        <p class="card-text">Lien d’invitation dans le groupe stat-informaticiens :</p>
+        <a href="https://chat.whatsapp.com/JXv21kpDxp90LjZ4GZF1YN"
+           class="btn btn-success">whatsapp</a>
+    </div>
+</div>
+<hr>
+<a href="https://drive.google.com/open?id=1KkPYtnJQ0l4VT89kVF5c8YEb_Q3FbZ-K"
+           class="btn btn-primary">Projet : Tutos </a>
+<div></div><div></div>
+<hr>
+<a href="https://drive.google.com/open?id=1N5x8ixv74nWFNwW4DJ9m4LVoYrkJNfEt"
+           class="btn btn-warning">Projet : Open Analysis</a>
 </div>
 {% endblock sidebar %} 
   {% for post in posts %}

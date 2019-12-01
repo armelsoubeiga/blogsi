@@ -5,7 +5,7 @@
 {% block title %}Acceuil {% endblock %}
 {% block content%} 
 	<!--<div class="inner">--> 
-		{% load static %}
+	{% load static %}
 	<marquee direction="right" onmouseout="this.start()" onmouseover="this.stop()" scrolldelay="1">
 		<a href="https://drive.google.com/open?id=1z2sqOPLL-kOqWt8g0GJljs4YIFnKmOEI" target="_blank"><img src="{% static 'image/LT001.png' %}" class="image"></a>
 		<a href="https://drive.google.com/open?id=1en22FjtdHqUBpahTrGgxViHLtjoZIjFR" target="_blank"><img src="{% static 'image/LT002.png' %}" class="image"></a>
@@ -20,9 +20,7 @@
 <hr><div></div>
 {% block sidebar %}
 <style>
-.card{
-    box-shadow: 0 16px 48px #E3E7EB;
-        }
+.card{box-shadow: 0 16px 48px #E3E7EB;}
 
 .image {
 	background-size: cover;

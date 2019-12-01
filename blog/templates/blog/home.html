@@ -4,17 +4,17 @@
 <!-- Title only for this site -->
 {% block title %}Acceuil {% endblock %}
 {% block content%} 
-	<!--<div class="inner">-->
-
+	<!--<div class="inner">--> 
+		{% load static %}
 	<marquee direction="right" onmouseout="this.start()" onmouseover="this.stop()" scrolldelay="1">
-		<a href="https://drive.google.com/open?id=1z2sqOPLL-kOqWt8g0GJljs4YIFnKmOEI" target="_blank"><img src="/static/image/LT001.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1en22FjtdHqUBpahTrGgxViHLtjoZIjFR" target="_blank"><img src="/static/image/LT002.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1PpDmiwNYsS8PIOSR9GWGBgbhlYbW9IcJ" target="_blank"><img src="/static/image/LT003.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1-u-4GWenUb2ZXDMD0wcP9kb1nue076Wa" target="_blank"><img src="/static/image/LT004.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1THvyj8unnDJXw2lvMOmhGNT5GrW_DmQq" target="_blank"><img src="/static/image/LT005.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1zmZZ0MxVOJEZ0D2QGmchp0gDOmqhy8Bb" target="_blank"><img src="/static/image/LT006.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1T0m1R6-V9QD5WNszrrLb9sGt_aLFqTUL" target="_blank"><img src="/static/image/LT007.png" class="image"></a>
-		<a href="https://drive.google.com/open?id=1ss4BDsBGDjlmURgk5KxyVqVuiEeGwiFS" target="_blank"><img src="/static/image/LT009.png" class="image"></a>
+		<a href="https://drive.google.com/open?id=1z2sqOPLL-kOqWt8g0GJljs4YIFnKmOEI" target="_blank"><img src="{% static 'image/LT001.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1en22FjtdHqUBpahTrGgxViHLtjoZIjFR" target="_blank"><img src="{% static 'image/LT002.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1PpDmiwNYsS8PIOSR9GWGBgbhlYbW9IcJ" target="_blank"><img src="{% static 'image/LT003.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1-u-4GWenUb2ZXDMD0wcP9kb1nue076Wa" target="_blank"><img src="{% static 'image/LT004.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1THvyj8unnDJXw2lvMOmhGNT5GrW_DmQq" target="_blank"><img src="{% static 'image/LT005.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1zmZZ0MxVOJEZ0D2QGmchp0gDOmqhy8Bb" target="_blank"><img src="{% static 'image/LT006.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1T0m1R6-V9QD5WNszrrLb9sGt_aLFqTUL" target="_blank"><img src="{% static 'image/LT007.png' %}" class="image"></a>
+		<a href="https://drive.google.com/open?id=1ss4BDsBGDjlmURgk5KxyVqVuiEeGwiFS" target="_blank"><img src="{% static 'image/LT009.png' %}" class="image"></a>
 	</marquee>
 	<!--</div>-->
 <hr><div></div>

@@ -135,3 +135,4 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     },
 }
+FILE_UPLOAD_PERMISSIONS = 0644

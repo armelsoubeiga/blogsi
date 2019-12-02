@@ -243,3 +243,7 @@ input:after {
 main {
   padding-bottom:120px; 
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}

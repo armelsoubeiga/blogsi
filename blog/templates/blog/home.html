@@ -64,7 +64,7 @@
             	<img src="{{ post.author.profile.image.url }}" alt="author"  class="rounded-circle blog-content__img"/>
                 <div class="card-body">
                     <h2 class="card-title text-primary">{{ post.title }}</h2>
-                    <p class="card-text">{{post.content|slice:":300" }}</p>
+                    <p class="card-text">{{post.content|safe|slice:":300" }}</p>
                             <div class="blog-content__metadata pt-1">
 					          <p> Auteur:
 					            <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>

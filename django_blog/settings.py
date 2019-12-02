@@ -134,14 +134,6 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
  
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Basic',
-        'enterMode': 2,
-    },
-    'awesome_ckeditor':{
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            [ 'Bold','Italic','Underline','Strike','-','Link','Unlink','Anchor','-', 'Styles','Format','Font','FontSize','-',
-'Image' ]
-        ]
+        'toolbar': None,
     },
 }

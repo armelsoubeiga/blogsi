@@ -11,7 +11,8 @@
     <!-- START Content Post -->
     <div class="blog-content__body">
       <!-- Title Post -->
-      <h1> {{ object.title }} </h1>
+      <h1 class="text-primary"> {{ object.title }} </h1>
+      <br>
       <!-- Content Post -->
       <p class="blog-content__content">{{ object.content|safe }}</p>
 
@@ -33,4 +34,18 @@
     </div>
     <!-- END Content Post -->
   </article>
+  <h4 class="text-primary">Commentaires</h4>
+{% for comment in post.comments.all %}
+    <div class="comment">
+        <div class="date">
+          <strong class="mr-2 text-info">{{ comment.author }}, </strong>
+        {{ comment.created_date }}</div>
+        
+        <p>{{ comment.text|linebreaks }}</p>
+        <hr>
+    </div>
+{% empty %}
+    <p>Pas encore de commentaires ici :(</p>
+{% endfor %}
+ 	<a class="btn btn-primary" href="{% url 'add_comment_to_post' object.id %}">Commenter</a>
 {% endblock content%}

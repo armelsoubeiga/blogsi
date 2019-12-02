@@ -29,6 +29,10 @@
 	margin-right:50px;
 }
 
+span{
+margin-left: 25px;
+}
+
 </style>
 
 <!-- Sidebar Widgets Column -->
@@ -65,12 +69,17 @@
                 <div class="card-body">
                     <h2 class="card-title text-primary">{{ post.title }}</h2>
                     <p class="card-text">{{post.content|safe|slice:":300" }}</p>
-                            <div class="blog-content__metadata pt-1">
-					          <p> Auteur:
-					            <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>
-					          </p>
-					          <!-- Django Date format for Europe -->
-					          <small class="text-muted">Publié: {{ post.created_at | date:"d.m.Y" }}</small>
+                  <div class="blog-content__metadata pt-1">
+  					          <p> Auteur:
+  					            <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>
+  					          </p>
+  					          <!-- Django Date format for Europe -->
+                      <span> Publié:
+  					          <small class="mr-2 text-info">{{ post.created_at | date:"d.m.Y" }}</small>
+                      </span>
+                      <span> Commentaires:
+                        <a class="mr-2 text-info" href="{% url 'post-detail' post.id %}">{{ post.comments.count }}</a>
+                      </span>
 					        </div>
                     <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary">lirer &rarr;</a>
                  </div>

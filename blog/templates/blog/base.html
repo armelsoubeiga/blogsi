@@ -4,6 +4,15 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128994988-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-128994988-1');
+    </script>
+
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -30,7 +39,7 @@
     <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
 
     <!-- Dynamic Title -->
-    <title>{% block title %} Stat-Informaticiens {% endblock %}</title>
+    <title>{% block title %} Africa-AI{% endblock %}</title>
 
   </head>
 
@@ -39,7 +48,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" role="navigation">
           <div class="container">
             <!-- Navbar heading -->
-            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Stat-Informaticiens Blog</a>
+            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Africa-AI Blog</a>
             <!-- START Mobile Menu Button -->
             <button
                 class="navbar-toggler"
@@ -82,7 +91,7 @@
       <header class="base-header" style="background-image: url('/static/image/bg-img.jpg')">
         <div class="overlay"></div>
           <div class="post-heading">
-            <h1>Learning by sharing</h1>
+            <h1>Africa Artificial Intelligence</h1>
           </div>
       </header>
       <main class="container" role="main">
@@ -116,7 +125,7 @@
         </div>
         <!-- START Copyright -->
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
-          Stat-Informaticiens ||
+          Africa-AI ||
           <a href="{% url 'blog-impressum' %}" class="text-info">FootPrint</a>
         </div>
         <!-- END Copyright -->

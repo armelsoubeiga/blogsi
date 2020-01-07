@@ -3,8 +3,8 @@
 
 <!-- Title only for this site -->
 {% block title %}Acceuil {% endblock %}
-{% block content%} 
-	<!--<div class="inner">--> 
+{% block content%}
+	<!--<div class="inner">-->
 	{% load static %}
 	<marquee direction="right" onmouseout="this.start()" onmouseover="this.stop()" scrolldelay="1">
 		<a href="http://blog.kaggle.com/" target="_blank"><img src="{% static 'image/LT001.png' %}" class="image"></a>
@@ -39,7 +39,7 @@ margin-left: 25px;
 <!-- Sidebar Widgets Column -->
 <div class="col-xs-6 col-md-4 float-right ">
 <form class="add_your_class">
-    <input class="add_your_class" type="search" placeholder="Search.." name="search"> 
+    <input class="add_your_class" type="search" placeholder="Search.." name="search">
     <button class="add_your_class" type="submit"> Search </button>
 </form>
 <div class="card my-4">
@@ -59,7 +59,7 @@ margin-left: 25px;
     </div>
 </div>
 </div><br>
-{% endblock sidebar %} 
+{% endblock sidebar %}
   {% for post in posts %}
   	<div class="col-xs-12 col-md-8 mt-3 left">
             <div class="card mb-4">
@@ -78,12 +78,23 @@ margin-left: 25px;
                       <span> Commentaires:
                         <a class="mr-2 text-info" href="{% url 'post-detail' post.id %}">{{ post.comments.count }}</a>
                       </span>
-					        </div>
-                    <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary">lirer &rarr;</a>
-                 </div>
+		           </div>
+                 <div class="social-btns">
+                   <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary">lirer &rarr;</a>
+                   <span class="float-right mr-2 text-info"> Partager:
+                        {% with base_url="http://armelsoubeiga.pythonanywhere.com/post/" %}
+                            <a class="btn facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}&t={{ post.title }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                            <a class="btn linkedin" href="http://www.linkedin.com/shareArticle?url={{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}&title={{ post.title  }}&summary={{post.content|slice:':50' }}&source={{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
+                           <a class="btn twitter" href="https://twitter.com/intent/tweet?text=A%20good%20article%20to%20read%20absolutely%20%3A{{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        {% endwith %}
+                   </span>
+                </div>
+              </div>
             </div>
     </div>
-  {% endfor%} 
+  {% endfor%}
   <!-- render the list -->
 
 {% if is_paginated %}

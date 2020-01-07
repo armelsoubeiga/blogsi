@@ -2,10 +2,10 @@
 {% extends "blog/base.html"%}
 
 <!-- Title only for this site -->
-{% block title %}Post Detail{% endblock %}
+{% block title %}{{ object.title }}{% endblock %}
 
 {% block content%}
-  <article class="blog-content mb-4 pb-2 border-bottom" role="article">
+  <article class="blog-content mb-4 pb-2 col-xl border-bottom" role="article">
     <!-- Author Image -->
     <img src="{{ object.author.profile.image.url }}" alt="author" class="rounded-circle blog-content__img"/>
     <!-- START Content Post -->
@@ -33,6 +33,22 @@
       {% endif %}
     </div>
     <!-- END Content Post -->
+        <div class="float-right" ></div>
+    <div></div>
+    <div class="social-btns float-right">
+
+      <span class="float-right mr-2 text-info">
+
+                {% with base_url="http://armelsoubeiga.pythonanywhere.com/post/" %}
+                    <a class="btn-floating btn facebook  mr-2 text-info" href="https://www.facebook.com/sharer/sharer.php?u={{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}&t={{ post.title }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                    <a class="btn-floating btn linkedin  mr-2 text-info" href="http://www.linkedin.com/shareArticle?url={{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}&title={{ post.title  }}&summary={{post.content|slice:':50' }}&source={{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
+                   <a class="btn-floating btn twitter  mr-2 text-info" href="https://twitter.com/intent/tweet?text=A%20good%20article%20to%20read%20absolutely%20%3A{{ base_url|urlencode }}{{ post.id  }}{{ request.get_full_path|urlencode }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                {% endwith %}
+      </span>
+    </div>
+
   </article>
   <h4 class="text-primary">Commentaires</h4>
 {% for comment in post.comments.all %}
@@ -40,7 +56,7 @@
         <div class="date">
           <strong class="mr-2 text-info">{{ comment.author }}, </strong>
         {{ comment.created_date }}</div>
-        
+
         <p>{{ comment.text|linebreaks }}</p>
         <hr>
     </div>
